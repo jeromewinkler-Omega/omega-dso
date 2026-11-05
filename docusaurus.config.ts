@@ -7,24 +7,28 @@ dotenvconfig();
 
 /* TODO: change to read configuration from environment */
 const blogEnabled = Boolean(process.env.BLOG_ENABLED === 'true')
+const gitRepositoryUrl = process.env.GIT_REPOSITORY_URL ?? 'https://github.com/jeromewinkler-Omega/omega-dso-repo';
+const isDev = process.env.NODE_ENV === 'development';
+
+
 
 const config: Config = {
-  title: 'DSO Live Demo Docs',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'DSO Live Blog to verify my live Project diary ',
+  tagline: 'Combining a relentless drive for efficiency with meticulous attention to detail, I am fully focused on transitioning into the DevSecOps landscape and mastering the challenges ahead.',
+  favicon: 'img/Omega-favicon.ico',
 
   // Set the production url of your site here
-  url: process.env.DEPLOYMENT_URL ?? "https://spmse.github.io",
+  url: process.env.DEPLOYMENT_URL ?? "https://jeromewinkler-Omega.github.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: process.env.BASE_URL ?? "/",
+  baseUrl: process.env.BASE_URL ?? "/omega-dso-blog/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: process.env.GITHUB_ORG, // Usually your GitHub org/user name.
-  projectName: process.env.GITHUB_PROJECT, // Usually your repo name.
+  organizationName: process.env.GITHUB_ORG ?? 'jeromewinkler-Omega', // Usually your GitHub org/user name
+  projectName: process.env.GITHUB_PROJECT ?? 'omega-dso-blog', // Usually your repo name.
 
-  deploymentBranch: process.env.DEPLOYMENT_BRANCH,
+  deploymentBranch: process.env.DEPLOYMENT_BRANCH ?? 'gh-pages',
 
   onBrokenLinks: 'throw',
   markdown: {
@@ -50,7 +54,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/spmse/dev-blog-template',
+            'https://github.com/jeromewinkler-Omega/dso-blog',
         },
         blog: blogEnabled ? 
           {
@@ -61,8 +65,7 @@ const config: Config = {
             },
             // Please change this to your repo.
             // Remove this to remove the "edit this page" links.
-            editUrl:
-              'https://github.com/spmse/dev-blog-template',
+            editUrl:`${gitRepositoryUrl}/tree/main/`,
             // Useful options to enforce blogging best practices
             onInlineTags: 'warn',
             onInlineAuthors: 'warn',
@@ -78,12 +81,12 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/z_nano_core_social_card_v2.png',
     navbar: {
-      title: 'My Site',
+      title: 'Omega-DSO Live Blog',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/omega-logo.svg',
       },
       items: [
         {
@@ -93,10 +96,13 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/spmse/dev-blog-template',
+          href: 'https://github.com/jeromewinkler-Omega/dso-blog',
           label: 'Github',
           position: 'right',
         },
+        ...(isDev
+          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', position: 'right' as const }]
+          :[]),
       ],
     },
     footer: {
@@ -109,36 +115,49 @@ const config: Config = {
               label: 'Tutorial',
               to: '/docs/guides/intro',
             },
+            {
+              label: 'Projects',
+              to: '/docs/projects/overview',
+            },
           ],
         },
         {
-          title: 'Community',
+        {
+          title: 'Projects', // Hinzufügen des neuen Menüpunkts "Projects" in der Fußzeile
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Overview',
+              to: '/docs/projects/overview',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Docusaurus-Blog',
+              to: '/docs/projects/docusaurus-blog',
             },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+            
           ],
-        },
+          
+        },  
+        
         {
           title: 'More',
           items: [
+              
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            }
+              href: 'https://github.com/jeromewinkler-Omega/dso-blog',
+            },
+            {
+              label: 'Template',
+              href: 'https://github.com/jeromewinkler-Omega/dso-blog-template',
+            },
+            ...(isDev
+          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', position: 'right' as const }]
+          :[]),
           ],
         },
+        
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Sven Patrick Meier (spmse). Built with Docusaurus and 💚.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Z-Nano-Core. Built with Docusaurus. 💚.extended from the developer-akademie-starter  `, // User-Anpassung und extended hinzugefügt
     },
     prism: {
       theme: prismThemes.github,
