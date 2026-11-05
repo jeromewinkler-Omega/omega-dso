@@ -18,7 +18,7 @@ const config: Config = {
   favicon: 'img/Omega-favicon.ico',
 
   // Set the production url of your site here
-  url: process.env.DEPLOYMENT_URL ?? "https://jeromewinkler-Omega.github.io/",
+  url: process.env.DEPLOYMENT_URL ?? "https://jeromewinkler-Omega.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: process.env.BASE_URL ?? "/omega-dso-blog/",
@@ -144,7 +144,7 @@ const config: Config = {
               
             {
               label: 'GitHub',
-              href: 'https://github.com/jeromewinkler-Omega/dso-blog',
+              href: 'https://github.com/jeromewinkler-Omega/omega-dso-repo',
             },
             {
               label: 'Template',
