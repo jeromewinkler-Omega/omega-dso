@@ -90,6 +90,7 @@ To deploy without using SSH, run:
 ```
 $ GIT_USER=<Your GitHub username> npm run deploy
 ```
+Every push to the `main` branch triggers a prepared GitHub Actions workflow that automatically builds the website and deploys it to GitHub Pages.
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
 
