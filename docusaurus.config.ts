@@ -54,7 +54,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/jeromewinkler-Omega/dso-blog',
+            'https://github.com/jeromewinkler-Omega/omega-dso-repo',
         },
         blog: blogEnabled ? 
           {
@@ -81,7 +81,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/z_nano_core_social_card_v2.png',
+    image: 'img/z_nano_core_social_card_v8.png',
     navbar: {
       title: 'Omega-DSO Live Blog',
       logo: {
@@ -96,7 +96,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/jeromewinkler-Omega/dso-blog',
+          href: 'https://github.com/jeromewinkler-Omega/omega-dso-repo',
           label: 'Github',
           position: 'right',
         },
