@@ -121,7 +121,7 @@ const config: Config = {
             },
           ],
         },
-        {
+        
         {
           title: 'Projects', // Hinzufügen des neuen Menüpunkts "Projects" in der Fußzeile
           items: [
