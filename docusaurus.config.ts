@@ -21,12 +21,12 @@ const config: Config = {
   url: process.env.DEPLOYMENT_URL ?? "https://jeromewinkler-Omega.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: process.env.BASE_URL ?? "/omega-dso-blog/",
+  baseUrl: process.env.BASE_URL ?? "/omega-dso/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: process.env.GITHUB_ORG ?? 'jeromewinkler-Omega', // Usually your GitHub org/user name
-  projectName: process.env.GITHUB_PROJECT ?? 'omega-dso-blog', // Usually your repo name.
+  projectName: process.env.GITHUB_PROJECT ?? 'omega-dso', // Usually your repo name.
 
   deploymentBranch: process.env.DEPLOYMENT_BRANCH ?? 'gh-pages',
 
@@ -54,7 +54,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/jeromewinkler-Omega/omega-dso-repo',
+            'https://github.com/jeromewinkler-Omega/omega-dso',
         },
         blog: blogEnabled ? 
           {
@@ -96,7 +96,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/jeromewinkler-Omega/omega-dso-repo',
+          href: 'https://github.com/jeromewinkler-Omega/omega-dso',
           label: 'Github',
           position: 'right',
         },
