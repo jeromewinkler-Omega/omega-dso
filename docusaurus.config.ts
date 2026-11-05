@@ -51,10 +51,10 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/jeromewinkler-Omega/omega-dso',
+          editUrl:`${gitRepositoryUrl}/tree/main/`,
         },
         blog: blogEnabled ? 
           {
@@ -144,7 +144,7 @@ const config: Config = {
               
             {
               label: 'GitHub',
-              href: 'https://github.com/jeromewinkler-Omega/omega-dso-repo',
+              href: 'https://github.com/jeromewinkler-Omega/omega-dso',
             },
             {
               label: 'Template',
