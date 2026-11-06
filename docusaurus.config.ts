@@ -1,14 +1,14 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import {config as dotenvconfig}  from "dotenv";
+import {config as dotenvconfig}  from "dotenv"; // Importieren der dotenv-Konfiguration, um Umgebungsvariablen aus einer .env-Datei zu laden
 
 dotenvconfig();
 
 /* TODO: change to read configuration from environment */
 const blogEnabled = Boolean(process.env.BLOG_ENABLED === 'true')
 const gitRepositoryUrl = process.env.GIT_REPOSITORY_URL ?? 'https://github.com/jeromewinkler-Omega/omega-dso'; // Stringe Constante für die GitHub-Repository-URL, die aus der Umgebungsvariable gelesen wird oder einen Standardwert hat
-const isDev = process.env.NODE_ENV === 'development'; // Boolean, der überprüft, ob die Anwendung im Entwicklungsmodus läuft
+const isDev = process.env.SHOW_DEV_LINKS === 'true'; // Boolean, der überprüft, ob die Anwendung im Entwicklungsmodus läuft
 
 
 
@@ -101,7 +101,7 @@ const config: Config = {
           position: 'right',
         },
         ...(isDev
-          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', //ScreenPal menu item in the navbar
+          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', //      ScreenPal menu item in the navbar
               position: 'right' as const }]
           :[]),
       ],
@@ -115,8 +115,7 @@ const config: Config = {
             {
               label: 'Tutorial',
               to: '/docs/guides/intro', // Menüpunkt "Tutorial" in der Fußzeile    {
-              label: 'Projects',
-              to: '/docs/projects/overview', // Menüpunkt "Projects" in der Fußzeile
+              
             },
           ],
         },
@@ -148,8 +147,8 @@ const config: Config = {
               href: 'https://github.com/jeromewinkler-Omega/dso-blog-template', // Hinzufügen des neuen Menüpunkts "Template" in der Fußzeile
             },
             ...(isDev
-          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', position: 'right' as const }] 
-          :[]), // Hinzufügen des neuen Menüpunkts "ScreenPal" in der Fußzeile, nur im Entwicklungsmodus
+              ? [{ href: 'https://screenpal.com', label: 'ScreenPal', position: 'right' as const }] 
+              :[]), // Hinzufügen des neuen Menüpunkts "ScreenPal" in der Fußzeile, nur im Entwicklungsmodus
           ],
         },
         
