@@ -90,13 +90,16 @@ To deploy without using SSH, run:
 ```
 $ GIT_USER=<Your GitHub username> npm run deploy
 ```
-Every push to the `main` branch triggers a prepared GitHub Actions workflow that automatically builds the website and deploys it to GitHub Pages.
+Automated Process:
+The project is configured so that every push to the main branch automatically triggers a GitHub Actions workflow pipeline. This pipeline builds the website autonomously and updates GitHub Pages. The deployment command mentioned above is a convenient way to trigger the build process locally and upload the result directly to the gh-pages branch. Before performing a manual deployment, make sure that all local changes have been thoroughly tested. You should also verify that your GitHub token has the necessary write permissions for the repository. When using GitHub Actions, it’s also recommended to regularly check the build logs in the repository tab for errors.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Translated with DeepL.com (free version)
 
 ### Deploying using NGINX
 
-To deploy the site using NGINX and Docker, follow this [guide](./docs/guides/deploy-docusaurus-with-docker-and-nginx.md)
+If you prefer to run the site in a platform-independent manner using NGINX and Docker, you'll find all the necessary steps in this documentation below. This Docker-based method is particularly well-suited for closed corporate networks or custom server environments.
+
+follow this [guide](./docs/guides/deploy-docusaurus-with-docker-and-nginx.md)
 
 ### Contributing
 

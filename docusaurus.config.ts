@@ -7,15 +7,15 @@ dotenvconfig();
 
 /* TODO: change to read configuration from environment */
 const blogEnabled = Boolean(process.env.BLOG_ENABLED === 'true')
-const gitRepositoryUrl = process.env.GIT_REPOSITORY_URL ?? 'https://github.com/jeromewinkler-Omega/omega-dso';
-const isDev = process.env.NODE_ENV === 'development';
+const gitRepositoryUrl = process.env.GIT_REPOSITORY_URL ?? 'https://github.com/jeromewinkler-Omega/omega-dso'; // Stringe Constante für die GitHub-Repository-URL, die aus der Umgebungsvariable gelesen wird oder einen Standardwert hat
+const isDev = process.env.NODE_ENV === 'development'; // Boolean, der überprüft, ob die Anwendung im Entwicklungsmodus läuft
 
 
 
 const config: Config = {
-  title: 'DSO Live Blog to verify my live Project diary ',
-  tagline: 'Combining a relentless drive for efficiency with meticulous attention to detail, I am fully focused on transitioning into the DevSecOps landscape and mastering the challenges ahead.',
-  favicon: 'img/Omega-favicon.ico',
+  title: 'DSO Live Blog to verify my live Project diary ', // User-Anpassung des Titels der Website
+  tagline: 'Combining a relentless drive for efficiency with meticulous attention to detail, I am fully focused on transitioning into the DevSecOps landscape and mastering the challenges ahead.', // User-Anpassung des Untertitels der Website
+  favicon: 'img/Omega-favicon.ico', // User-Anpassung des Pfads zum Favicon der Website
 
   // Set the production url of your site here
   url: process.env.DEPLOYMENT_URL ?? "https://jeromewinkler-Omega.github.io",
@@ -54,7 +54,7 @@ const config: Config = {
           
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:`${gitRepositoryUrl}/tree/main/`,
+          editUrl:`${gitRepositoryUrl}/tree/main/`, // editUrl: 'die oben als const angegeben wurde und hier wiederverwendet wird',
         },
         blog: blogEnabled ? 
           {
@@ -65,7 +65,7 @@ const config: Config = {
             },
             // Please change this to your repo.
             // Remove this to remove the "edit this page" links.
-            editUrl:`${gitRepositoryUrl}/tree/main/`,
+            editUrl:`${gitRepositoryUrl}/tree/main/`, // editUrl: 'die oben als const angegeben wurde und hier wiederverwendet wird', 
             // Useful options to enforce blogging best practices
             onInlineTags: 'warn',
             onInlineAuthors: 'warn',
@@ -73,7 +73,7 @@ const config: Config = {
           }
           : false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: './src/css/custom.css', // User-Anpassung des Pfads zur benutzerdefinierten CSS-Datei
         },
       } satisfies Preset.Options,
     ],
@@ -83,10 +83,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/z_nano_core_social_card_v8.png',
     navbar: {
-      title: 'Omega-DSO Live Blog',
+      title: 'Omega-DSO Live Blog', // User-Anpassung des Titels in der Navigationsleiste
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/omega-logo.svg',
+        alt: 'My Site Logo', // User-Anpassung des Alt-Textes für das Logo in der Navigationsleiste
+        src: 'img/omega-logo.svg', // User-Anpassung des Logos in der Navigationsleiste
       },
       items: [
         {
@@ -96,12 +96,13 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/jeromewinkler-Omega/omega-dso',
+          href: 'https://github.com/jeromewinkler-Omega/omega-dso', // Hinzufügen des neuen Menüpunkts "GitHub" in der Navigationsleiste
           label: 'Github',
           position: 'right',
         },
         ...(isDev
-          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', position: 'right' as const }]
+          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', //ScreenPal menu item in the navbar
+              position: 'right' as const }]
           :[]),
       ],
     },
@@ -113,15 +114,12 @@ const config: Config = {
           items: [
             {
               label: 'Tutorial',
-              to: '/docs/guides/intro',
-            },
-            {
+              to: '/docs/guides/intro', // Menüpunkt "Tutorial" in der Fußzeile    {
               label: 'Projects',
-              to: '/docs/projects/overview',
+              to: '/docs/projects/overview', // Menüpunkt "Projects" in der Fußzeile
             },
           ],
         },
-        
         {
           title: 'Projects', // Hinzufügen des neuen Menüpunkts "Projects" in der Fußzeile
           items: [
@@ -131,28 +129,27 @@ const config: Config = {
             },
             {
               label: 'Docusaurus-Blog',
-              to: '/docs/projects/docusaurus-blog',
+              to: '/docs/projects/docusaurus-blog', // Hinzufügen des neuen Menüpunkts "Docusaurus-Blog" in der Fußzeile
             },
             
           ],
           
         },  
-        
         {
           title: 'More',
           items: [
               
             {
               label: 'GitHub',
-              href: 'https://github.com/jeromewinkler-Omega/omega-dso',
+              href: 'https://github.com/jeromewinkler-Omega/omega-dso', // Hinzufügen des neuen Menüpunkts "GitHub" in der Fußzeile
             },
             {
               label: 'Template',
-              href: 'https://github.com/jeromewinkler-Omega/dso-blog-template',
+              href: 'https://github.com/jeromewinkler-Omega/dso-blog-template', // Hinzufügen des neuen Menüpunkts "Template" in der Fußzeile
             },
             ...(isDev
-          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', position: 'right' as const }]
-          :[]),
+          ? [{ href: 'https://screenpal.com', label: 'ScreenPal', position: 'right' as const }] 
+          :[]), // Hinzufügen des neuen Menüpunkts "ScreenPal" in der Fußzeile, nur im Entwicklungsmodus
           ],
         },
         
